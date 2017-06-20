@@ -1,0 +1,33 @@
+extends ./shared/layout
+block heading
+	h1= title
+
+block main-content
+	p Title: #{item.title}
+	p Description: #{item.description}
+	label Image:
+	img(src='/images/' + item.image)
+	p Views: #{item.views}
+		br
+	div.form-container
+		form.form-container(name='change-state' method='post' action='/details/#{item.id}')
+		div.actions
+		if item.state
+			input(type='submit' value='Delete')
+		if !item.state
+			input(type='submit' value='Undelete')
+	if item.comments.length > 0
+		h2 All Comments
+	each comment in item.comments
+		p User: #{comment.user}; Creation Date: #{comment.commentDate}
+		p Text: #{comment.text}
+	br
+	div.form-container
+		form.form-container(name='add-comment' method='post' action='/article/details/' + item.id + '/comment')
+			label Username:
+			input(type='text' name='user')
+			br
+			label Comment:
+			textarea(name='comment')
+			div.actions
+				input(type='submit' value='Add Comment')

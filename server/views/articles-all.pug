@@ -1,0 +1,8 @@
+extends ./shared/layout
+block heading
+	h1= title
+block main-content
+	ul
+		each article in articles
+			li.active
+				a(href='/article/details/' + article.id) #{'Title: ' + article.title + ' Date of creation: ' + article.date}

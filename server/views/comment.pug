@@ -1,0 +1,9 @@
+extends ./shared/layout
+block heading
+	h1= title
+block main-content
+	label Comment Text
+	p #{comment.text}
+	label Date of creation: #{comment.commentDate}.
+	br
+	label Submitted by: #{comment.user}.

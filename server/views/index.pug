@@ -1,0 +1,8 @@
+extends ./shared/layout
+block heading
+	h1= title
+block main-content
+	p Welcome to #{title}
+	each article in articles
+		li.active
+			a.active(href='/article/details/' + article.id) #{'Title: ' + article.title + ' - Views: ' + article.views}

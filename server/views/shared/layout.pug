@@ -1,0 +1,18 @@
+doctype
+html
+	head
+		title= "Stoyan's Forum System"
+		link(href="/css/site.css" rel="stylesheet")
+	body
+		.container
+			block heading
+			ul.menu
+				li
+					a(href='/') Home
+				li
+					a(href='/arcticle/create') Create Article
+				li
+					a(href='/arcticle/all') All Articles
+			if(globalError)
+				h3= globalError
+			block main-content
