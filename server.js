@@ -21,7 +21,7 @@ app.set('result', [])
 
 //use favicon
 //app.use(favicon(__dirname + '/public/images/favicon.ico'))
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
+//app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -30,6 +30,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', routes)
+app.use('/favicon.ico',	favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 app.use('/arcticle/create', create)
 app.use('/arcticle/all', allArticles)
 app.use('/article/details', articleDetails)
