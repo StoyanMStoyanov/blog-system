@@ -1,6 +1,7 @@
 let express = require('express')
 let path = require('path')
 let bodyParser = require('body-parser')
+let favicon = require('serve-favicon')
 
 let app = express()
 let port = process.env.port || 4000
@@ -17,6 +18,10 @@ let stats = require('./server/routes/stats')
 app.set('views', path.join(__dirname, 'server/views'))
 app.set('view engine', 'pug')
 app.set('result', [])
+
+//use favicon
+//app.use(favicon(__dirname + '/public/images/favicon.ico'))
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
