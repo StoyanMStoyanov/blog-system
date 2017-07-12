@@ -4,7 +4,7 @@ let bodyParser = require('body-parser')
 let favicon = require('serve-favicon')
 
 let app = express()
-let port = process.env.port || 4000
+let port = process.env.port || 5000
 let env = process.env.MODE_ENV || 'development'
 
 let routes = require('./server/routes/index')
